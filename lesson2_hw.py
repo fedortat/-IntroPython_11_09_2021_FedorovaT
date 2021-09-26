@@ -65,12 +65,12 @@ else:
 # 7)
 my_str = 'aSdF'
 if len(my_str) < 5:
-    print(my_str[::-1])
+    print(my_str+my_str[::-1])
 else:
     print(my_str)
 #################################################
 my_str = 'aSdFgH'
 if len(my_str) < 5:
-    print(my_str[::-1])
+    print(my_str+my_str[::-1])
 else:
     print(my_str)
