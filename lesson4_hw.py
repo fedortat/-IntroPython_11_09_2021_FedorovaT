@@ -24,7 +24,8 @@ l_limit = "e"
 r_limit = "m"
 sub_str_start = my_str.find(l_limit)
 sub_str_end = my_str.rfind(r_limit)
-my_new_str = my_str[sub_str_start + 1:sub_str_end]
+sub_str = my_str[sub_str_start + 1:sub_str_end]
+print(sub_str)
 
 # 5)
 my_str_list = ["adghjk", "jfgagj", "aeitu", "fdgk", "oeapti", "lhljf"]
@@ -41,6 +42,7 @@ my_new_str_list = []
 for word in my_str_list:
     if "a" in word:
         my_new_str_list.append(word)
+# то же самое в одну строку:
 my_new_str_list = [word for word in my_str_list if "a" in word]
 
 # 7)
