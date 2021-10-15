@@ -6,8 +6,8 @@ my_digit_count = my_number.count(my_digit)
 
 # 2)
 my_number = 12305460003566300
-my_number = str(my_number)[::-1]
-count_zero_end = len(my_number) - len(my_number.strip('0'))
+my_number = str(my_number)
+count_zero_end = len(my_number) - len(my_number.rstrip('0'))
 
 # 3)
 my_str = "96 больше чем 61 но меньше чем 316"
@@ -93,3 +93,4 @@ for index, item_alone in enumerate(my_str):
             my_list.append(result)
         else:
             my_list.append(item_alone + "_")
+
