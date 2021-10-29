@@ -61,9 +61,9 @@ def create_new_list(my_list):
             my_new_list.append(value)
     return my_new_list
 
-my_list = ["ddhfhsf", "esfhyh", "wrywty", "hlthklky"]
-my_new_list = create_new_list(my_list)
-print(my_new_list)
+# my_list = ["ddhfhsf", "esfhyh", "wrywty", "hlthklky"]  # для самопроверки
+# my_new_list = create_new_list(my_list)
+# print(my_new_list)
 
 ##################################################################
 # 4)
@@ -78,7 +78,7 @@ def create_email(names, domains):
     email = f"{random_names}.{randint(100, 999)}@{random_string}.{random_domains}"
     return email
 
-names=["john", "jane", "tom", "elis"]
-domains=["net", "com", "ua"]
-email = create_email(names, domains)
-print(email)
+# names=["john", "jane", "tom", "elis"]  # для самопроверки
+# domains=["net", "com", "ua"]
+# email = create_email(names, domains)
+# print(email)
