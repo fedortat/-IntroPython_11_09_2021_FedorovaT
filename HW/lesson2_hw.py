@@ -37,6 +37,9 @@ print(new_value)
 value = randint(1, 300)
 value = int(value)
 new_value = True if value < 100 else False
+# правильный подход к записи тернарного оператора выше:
+new_value = value < 100
+
 print(new_value)
 
 # 4)
@@ -62,6 +65,13 @@ if len(my_str) < 5:
 else:
     print(my_str)
 
+# запись тернарным оператором:
+my_str = my_str * 2 if len(my_str) < 5 else my_str
+
+# но на самом деле else в этом случае можно и не добавлять:
+if len(my_str) < 5:
+    my_str * 2
+
 # 7)
 my_str = 'aSdF'
 if len(my_str) < 5:
@@ -74,3 +84,7 @@ if len(my_str) < 5:
     print(my_str + my_str[::-1])
 else:
     print(my_str)
+
+# но на самом деле else в этом случае можно и не добавлять:
+if len(my_str) < 5:
+    my_str + my_str[::-1]

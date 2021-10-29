@@ -4,6 +4,8 @@ for value in my_list:
     if value > 100:
         print(value)
 
+
+
 # 2)
 my_list = [3, 14, 88, 345, 130, 4, 192]
 my_results = []
@@ -20,6 +22,14 @@ if len(my_list) < 2:
 else:
     my_list.append(sum(my_new_list))
 print(my_list)
+
+my_list = [3, 14, 88, 345, 130, 4, 192]
+if len(my_list) < 2:
+    my_list.append(0)
+else:
+    my_list.append(my_list[-2] + my_list[-1])
+print(my_list)
+
 
 #########################
 my_list = [88]

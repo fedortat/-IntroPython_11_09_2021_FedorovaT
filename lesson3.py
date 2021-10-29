@@ -130,7 +130,7 @@ from random import randint
 # print(my_tuple)
 
 
-################################### распаковка картежей и списков
+################################### распаковка кортежей и списков
 
 # val_1 = 12
 # val_2 = 21
@@ -146,7 +146,7 @@ from random import randint
 # print(val_int_1, val_int_2, my_str)
 #
 # my_tuple = (1, 2, "qwe")
-# val_int_1, val_int_2, _ = my_tuple  # ставим заглушку, если какой-то элемент картежа не нужен
+# val_int_1, val_int_2, _ = my_tuple  # ставим заглушку, если какой-то элемент кортежа не нужен
 # print(val_int_1, val_int_2)
 #
 # my_tuple = (1, 2, "qwe", True, 3.14, (-2, 0), ["a", "z"])
