@@ -52,7 +52,7 @@ for key, value in my_dict_united.items():
 
 ##################################################################
 # 3)
-def create_new_list(my_list=["ddhfhsf", "esfhyh", "wrywty", "hlthklky"]):
+def create_new_list(my_list):
     my_new_list = []
     for index, value in enumerate(my_list):
         if index % 2 != 0:
@@ -61,8 +61,9 @@ def create_new_list(my_list=["ddhfhsf", "esfhyh", "wrywty", "hlthklky"]):
             my_new_list.append(value)
     return my_new_list
 
-# my_new_list = create_new_list()  # для самопроверки
-# print(my_new_list)
+my_list = ["ddhfhsf", "esfhyh", "wrywty", "hlthklky"]
+my_new_list = create_new_list(my_list)
+print(my_new_list)
 
 ##################################################################
 # 4)
@@ -70,13 +71,14 @@ from random import randint, choice
 from string import ascii_lowercase as alphabet
 
 
-def create_email(names=["john", "jane", "tom", "elis"], domains=["net", "com", "ua"]):
+def create_email(names, domains):
     random_names = choice(names)
     random_domains = choice(domains)
     random_string = ''.join(choice(alphabet) for _ in range(randint(5, 7)))
     email = f"{random_names}.{randint(100, 999)}@{random_string}.{random_domains}"
     return email
 
-
-# email = create_email()  # для самопроверки
-# print(email)
+names=["john", "jane", "tom", "elis"]
+domains=["net", "com", "ua"]
+email = create_email(names, domains)
+print(email)
