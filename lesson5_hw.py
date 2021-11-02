@@ -29,11 +29,13 @@ my_dict_1 = {"name": "John", "city": "Texas", "education": "TNU", "age": 15}
 my_dict_2 = {"name": "Jack", "age": 45, "job": "engineer"}
 
 # а)
-common_keys = [key for key in my_dict_1 if key in my_dict_2]
+# common_keys = [key for key in my_dict_1 if key in my_dict_2]
+common_keys = list(set(my_dict_1.keys()).intersection(set(my_dict_2.keys())))
 # print(common_keys)  # для самопроверки
 
 # б)
-my_dict_1_keys = [key for key in my_dict_1 if key not in my_dict_2]
+# my_dict_1_keys = [key for key in my_dict_1 if key not in my_dict_2]
+my_dict_1_keys = list(set(my_dict_1.keys()).difference(set(my_dict_2.keys())))
 # print(my_dict_1_keys)  # для самопроверки
 
 # в)
@@ -44,10 +46,17 @@ for key, value in my_dict_1.items():
 # print(my_new_dict)  # для самопроверки
 
 # г)
-my_dict_united = {**my_dict_1, **my_dict_2}
-for key, value in my_dict_united.items():
-    if key in my_dict_1 and key in my_dict_2:
-        my_dict_united[key] = [value, my_dict_1[key]]
+# my_dict_united = {**my_dict_1, **my_dict_2}
+# for key, value in my_dict_united.items():
+#     if key in my_dict_1 and key in my_dict_2:
+#         my_dict_united[key] = [value, my_dict_1[key]]
+# print(my_dict_united)  # для самопроверки
+my_dict_united = my_dict_1.copy()
+for key in my_dict_2:
+    if key in my_dict_united:
+        my_dict_united[key] = [my_dict_united[key], my_dict_2[key]]
+    else:
+        my_dict_united[key] = my_dict_2[key]
 # print(my_dict_united)  # для самопроверки
 
 ##################################################################
@@ -60,6 +69,9 @@ def create_new_list(my_list):
         else:
             my_new_list.append(value)
     return my_new_list
+    # for index in range(1, len(my_list), 2):
+    #     my_list[index] = my_list[index][::-1]
+    # return my_list
 
 # my_list = ["ddhfhsf", "esfhyh", "wrywty", "hlthklky"]  # для самопроверки
 # my_new_list = create_new_list(my_list)
@@ -78,7 +90,7 @@ def create_email(names, domains):
     email = f"{random_names}.{randint(100, 999)}@{random_string}.{random_domains}"
     return email
 
-# names=["john", "jane", "tom", "elis"]  # для самопроверки
-# domains=["net", "com", "ua"]
+# names = ["john", "jane", "tom", "elis"]  # для самопроверки
+# domains = ["net", "com", "ua"]
 # email = create_email(names, domains)
 # print(email)
