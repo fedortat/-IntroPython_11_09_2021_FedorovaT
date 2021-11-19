@@ -37,20 +37,20 @@ class FilesWorker:
 
 # для самопроверки
 
-filename = "domains.txt"
-files_worker = FilesWorker(filename)
-domains = files_worker.get_domains()
-print(domains)
-
-filename = 'names.txt'
-files_worker = FilesWorker(filename)
-names = files_worker.get_names()
-print(names)
-
-filename = 'authors.txt'
-files_worker = FilesWorker(filename)
-dates = files_worker.get_dates()
-print(dates)
+# filename = "domains.txt"
+# files_worker = FilesWorker(filename)
+# domains = files_worker.get_domains()
+# print(domains)
+#
+# filename = 'names.txt'
+# files_worker = FilesWorker(filename)
+# names = files_worker.get_names()
+# print(names)
+#
+# filename = 'authors.txt'
+# files_worker = FilesWorker(filename)
+# dates = files_worker.get_dates()
+# print(dates)
 
 
 ##################################################################
