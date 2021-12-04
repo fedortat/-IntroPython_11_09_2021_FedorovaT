@@ -111,7 +111,7 @@ def sell_all_usd():
     return log_balance_to_csv(result_s)
 
 
-start = start_restart()
+# start = start_restart()
 
 # операции для самопроверки:
 # start = start_restart()
