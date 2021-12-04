@@ -94,7 +94,11 @@ def buy_all_usd():
         usd_balance += uah_balance / curr_rate
         uah_balance = 0
         result_b = {"rate": curr_rate, "usd_balance": usd_balance, "uah_balance": uah_balance}
-    return log_balance_to_csv(result_b)
+        return log_balance_to_csv(result_b)
+    else:
+        pass
+        # print(f"UNAVAILABLE, REQUIRED BALANCE UAH > 0, AVAILABLE {uah_balance}")
+    # return log_balance_to_csv(result_b)
 
 
 # функция для продажи всех доступных USD и записи об этой транзакции в лог
@@ -108,10 +112,12 @@ def sell_all_usd():
         uah_balance += usd_balance * curr_rate
         usd_balance = 0
         result_s = {"rate": curr_rate, "usd_balance": usd_balance, "uah_balance": uah_balance}
-    return log_balance_to_csv(result_s)
+        return log_balance_to_csv(result_s)
+    else:
+        pass
+        # print(f"UNAVAILABLE, REQUIRED BALANCE USD > 0, AVAILABLE {usd_balance}")
+    # return log_balance_to_csv(result_s)
 
-
-# start = start_restart()
 
 # операции для самопроверки:
 # start = start_restart()
@@ -165,26 +171,3 @@ elif args.command == "NEXT":
     get_rate()
 elif args.command == "RESTART":
     start_restart()
-
-
-# parser_rate = subparsers.add_parser("rate", help="Getting current exchange rate")
-# parser_rate.set_defaults(func=get_rate)
-#
-# parser_balance = subparsers.add_parser("available", help="Getting current account balance")
-# parser_balance.set_defaults(func=get_balance)
-#
-# parser_buy = subparsers.add_parser("buy", help="Buying USD")
-# parser_buy.add_argument("amount", required=True, dest="amount")
-# parser_buy.set_defaults(func=buy_usd)
-#
-# parser_buy_all = subparsers.add_parser("buy all", help="Buying USD")
-# parser_buy_all.set_defaults(func=buy_all_usd)
-#
-# parser_sell = subparsers.add_parser("sell", help="Buying USD")
-# parser_sell.add_argument("amount", required=True, dest="amount")
-# parser_sell.set_defaults(func=sell_usd)
-#
-# parser_sell_all = subparsers.add_parser("sell all", help="Buying USD")
-# parser_sell_all.set_defaults(func=sell_all_usd)
-
-# args = parser.parse_args()
