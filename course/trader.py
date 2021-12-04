@@ -55,7 +55,7 @@ def buy_usd(amount):
     usd_balance = float(res["usd_balance"])
     uah_balance = float(res["uah_balance"])
     result_b = 0
-    curr_rate = get_rate(get_data_from_config())
+    curr_rate = get_rate()
     if amount * curr_rate <= uah_balance > 0:
         usd_balance += amount
         uah_balance -= amount * curr_rate
@@ -72,7 +72,7 @@ def sell_usd(amount):
     usd_balance = float(res["usd_balance"])
     uah_balance = float(res["uah_balance"])
     result_s = 0
-    curr_rate = get_rate(get_data_from_config())
+    curr_rate = get_rate()
     if amount <= usd_balance > 0:
         usd_balance -= amount
         uah_balance += amount * curr_rate
@@ -89,7 +89,7 @@ def buy_all_usd():
     usd_balance = float(res["usd_balance"])
     uah_balance = float(res["uah_balance"])
     result_b = 0
-    curr_rate = get_rate(get_data_from_config())
+    curr_rate = get_rate()
     if uah_balance > 0:
         usd_balance += uah_balance / curr_rate
         uah_balance = 0
@@ -103,7 +103,7 @@ def sell_all_usd():
     usd_balance = float(res["usd_balance"])
     uah_balance = float(res["uah_balance"])
     result_s = 0
-    curr_rate = get_rate(get_data_from_config())
+    curr_rate = get_rate()
     if usd_balance > 0:
         uah_balance += usd_balance * curr_rate
         usd_balance = 0
@@ -135,13 +135,13 @@ rate = subparsers.add_parser("RATE")
 available = subparsers.add_parser("AVAILABLE")
 buy = subparsers.add_parser("BUY")
 sell = subparsers.add_parser("SELL")
-buy_all = subparsers.add_parser("BUY ALL")
-sell_all = subparsers.add_parser("SELL ALL")
+buy_all = subparsers.add_parser("BUY_ALL")
+sell_all = subparsers.add_parser("SELL_ALL")
 next = subparsers.add_parser("NEXT")
 restart = subparsers.add_parser("RESTART")
 
-buy.add_argument("amount", nargs=1)
-sell.add_argument("amount", nargs=1)
+buy.add_argument("--amount", dest="value")
+sell.add_argument("--amount", dest="value")
 
 args = parser.parse_args()
 
@@ -154,12 +154,12 @@ elif args.command == "AVAILABLE":
     uah_balance = res_balance["uah_balance"]
     print(f"USD {usd_balance} UAH {uah_balance}")
 elif args.command == "BUY":
-    buy_usd()
+    buy_usd(args.value)
 elif args.command == "SELL":
-    sell_usd()
-elif args.command == "BUY ALL":
+    sell_usd(args.value)
+elif args.command == "BUY_ALL":
     buy_all_usd()
-elif args.command == "SELL ALL":
+elif args.command == "SELL_ALL":
     sell_all_usd()
 elif args.command == "NEXT":
     get_rate()
