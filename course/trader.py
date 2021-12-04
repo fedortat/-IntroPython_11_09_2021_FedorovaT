@@ -140,8 +140,8 @@ sell_all = subparsers.add_parser("SELL_ALL")
 next = subparsers.add_parser("NEXT")
 restart = subparsers.add_parser("RESTART")
 
-buy.add_argument("--amount", dest="value")
-sell.add_argument("--amount", dest="value")
+buy.add_argument("amount", type=int, help="Input amount of USD to buy")
+sell.add_argument("amount", type=int, help="Input amount of USD to sell")
 
 args = parser.parse_args()
 
@@ -154,9 +154,9 @@ elif args.command == "AVAILABLE":
     uah_balance = res_balance["uah_balance"]
     print(f"USD {usd_balance} UAH {uah_balance}")
 elif args.command == "BUY":
-    buy_usd(args.value)
+    buy_usd(args.amount)
 elif args.command == "SELL":
-    sell_usd(args.value)
+    sell_usd(args.amount)
 elif args.command == "BUY_ALL":
     buy_all_usd()
 elif args.command == "SELL_ALL":
