@@ -3,8 +3,8 @@ import json
 import csv
 from random import uniform
 
-configs = "config.json"
-status = "balance.csv"
+configs = "course/config.json"
+status = "course/balance.csv"
 
 
 # считываем начальные данные из файла конфигурации
@@ -26,7 +26,8 @@ def start_restart():
 
 
 # генерируем случайный курс
-def get_rate(data):
+def get_rate():
+    data = get_data_from_config()
     rate = round(uniform((data["rate"] - data["delta"]), (data["rate"] + data["delta"])), 2)
     return rate
 
@@ -148,7 +149,10 @@ if args.command == "RATE":
     res_rate = get_rate()
     print(res_rate)
 elif args.command == "AVAILABLE":
-    get_balance()
+    res_balance = get_balance()
+    usd_balance = res_balance["usd_balance"]
+    uah_balance = res_balance["uah_balance"]
+    print(f"USD {usd_balance} UAH {uah_balance}")
 elif args.command == "BUY":
     buy_usd()
 elif args.command == "SELL":
