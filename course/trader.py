@@ -3,8 +3,8 @@ import json
 import csv
 from random import uniform
 
-configs = "course/config.json"
-status = "course/balance.csv"
+configs = "config.json"
+status = "balance.csv"
 
 
 # считываем начальные данные из файла конфигурации
